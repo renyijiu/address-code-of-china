@@ -18,9 +18,9 @@ Ruby脚本，用于构建相关输出格式数据，运行下列命令即可：
 $ ruby format.rb
 ```
 
-#### codes_array.rb
+#### codes_hash.rb
 
-最新行政区划代码数组集合
+最新行政区划代码字典，主要为了ruby语言使用
 
 #### hash_data.rb
 
