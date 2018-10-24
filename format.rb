@@ -74,19 +74,19 @@ class AddressData
     end
   end
 
-  # 输出最新的行政区划代码数组
+  # 输出最新的行政区划代码字典
   def output_latest_address_codes
-    data = []
+    data = {}
 
     File.foreach("#{@current_year}.txt") do |line|
-      code, _ = line.split(' ')
+      code, address = line.split(' ')
 
       # 处理台湾行政区划代码710000，身份证地址码为830000
       code = code.to_i == 710000 ? 830000 : code.to_i
-      data << code
+      data[code] = address
     end
 
-    File.open('codes_array.rb', 'w') do |f|
+    File.open('codes_hash.rb', 'w') do |f|
       PP.pp(data, f)
     end
   end
